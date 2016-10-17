@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017171215) do
+ActiveRecord::Schema.define(version: 20161017184315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "establishment_id"
+    t.text     "body"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["establishment_id"], name: "index_comments_on_establishment_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "establishments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "kind_of_food"
+    t.string   "website"
+    t.string   "phone"
+    t.string   "address"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "establishment_id"
+    t.integer  "score"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["establishment_id"], name: "index_scores_on_establishment_id", using: :btree
+    t.index ["user_id"], name: "index_scores_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,4 +65,8 @@ ActiveRecord::Schema.define(version: 20161017171215) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "comments", "establishments"
+  add_foreign_key "comments", "users"
+  add_foreign_key "scores", "establishments"
+  add_foreign_key "scores", "users"
 end
