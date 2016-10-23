@@ -15,3 +15,13 @@
  *= require bootstrap
  *= require font_awesome
  */
+
+.padding {
+	padding-top: 90px;
+}
+
+.logged-in-picture{
+	border-radius: 50%;
+	height: 4em;
+	width: 4em;
+}

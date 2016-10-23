@@ -12,10 +12,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'welcome/navigation' %>
+    <div class="container main-container padding"> 
+      <% flash.each do |type, message| %>
+        <div class="alert <%= flash_class(type.to_s) %>">
+            <button class="close" data-dismiss="alert"> x </button>
+            <%= message %>
+        </div>
+      <% end %>
 
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
-
+      <%= yield %>
+    </div> 
+    <%= render 'welcome/footer' %>
   </body>
 </html>
