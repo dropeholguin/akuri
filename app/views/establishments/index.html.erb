@@ -1,30 +1,17 @@
 <h1>Establishments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Kind of food</th>
-      <th>Website</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @establishments.each do |establishment| %>
-      <tr>
-        <td><%= establishment.name %></td>
-        <td><%= establishment.kind_of_food %></td>
-        <td><%= establishment.website %></td>
-        <td><%= establishment.phone %></td>
-        <td><%= establishment.address %></td>
-        <td><%= link_to 'Show', establishment %></td>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="media">
+  <% @establishments.each do |establishment| %>
+    <div class="media-left media-middle">
+      <a href="#">
+      <%= link_to image_tag(establishment.image.url(:medium) ,class: "img-circle", height: '200', width: '200' ), establishment%>
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= establishment.name %></h4>
+      <p><%= establishment.description %></p>
+    </div>
+    <br>
+  <% end %>
+</div>
