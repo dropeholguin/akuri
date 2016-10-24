@@ -15,6 +15,9 @@ gem 'devise'
 gem 'frontend-generators'
 gem 'paperclip'
 gem 'cocoon'
+gem 'rails_admin'
+gem 'cancancan'
+gem 'rolify'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
