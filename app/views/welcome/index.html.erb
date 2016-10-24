@@ -8,22 +8,26 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-preview">
-                    <h2 class="post-title">
-                        Man must explore, and this is exploration at its greatest
-                    </h2>
-                    <%= image_tag("restaurant1.jpg") %>
-                <p class="post-meta">Restaurant by <a href="#"></a> on September 24, 2014</p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                    <h2 class="post-title">
-                        I believe every human has a finite number of heartbeats. I dointend to waste any of mine.
-                    </h2>
-                    <%= image_tag("restaurant2.jpg") %>
-                <p class="post-meta">Restaurant by <a href="#"></a> on September 18, 2014</p>
-            </div>
-            <hr>
+            <div class="row">
+                <div class="col-lg-4">
+                  <%= image_tag "restaurant1.jpg" , class: "img-circle", height: '250', width: '250' %>
+                  <h2>Name</h2>
+                  <p>Description.</p>
+                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                  <%= image_tag "restaurant1.jpg" , class: "img-circle", height: '250', width: '250' %>
+                  <h2>Name</h2>
+                  <p>Description.</p>
+                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                  <%= image_tag "restaurant1.jpg" , class: "img-circle", height: '250', width: '250' %>
+                  <h2>Name</h2>
+                  <p>Description.</p>
+                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+              </div><!-- /.row -->
             <!-- Pager -->
             <ul class="pager">
                 <li class="next">

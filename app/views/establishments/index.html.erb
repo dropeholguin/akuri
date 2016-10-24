@@ -21,13 +21,10 @@
         <td><%= establishment.phone %></td>
         <td><%= establishment.address %></td>
         <td><%= link_to 'Show', establishment %></td>
-        <td><%= link_to 'Edit', edit_establishment_path(establishment) %></td>
-        <td><%= link_to 'Destroy', establishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Establishment', new_establishment_path %>
