@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <%= render 'welcome/shim' %>
     <%= render 'welcome/navigation' %>
     <div class="container main-container padding"> 
       <% flash.each do |type, message| %>
@@ -22,7 +23,7 @@
       <% end %>
 
       <%= yield %>
+      <%= render 'welcome/footer' %>
     </div> 
-    <%= render 'welcome/footer' %>
   </body>
 </html>

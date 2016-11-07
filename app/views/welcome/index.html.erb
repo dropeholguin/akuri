@@ -9,25 +9,15 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="row">
+              <% @establishments.each do |establishment| %>
                 <div class="col-lg-4">
-                  <%= image_tag "restaurant1.jpg" , class: "img-circle", height: '250', width: '250' %>
-                  <h2>Name</h2>
-                  <p>Description.</p>
-                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                  <%= image_tag establishment.image.url(:medium) ,class: "img-rounded", height: '250', width: '250' %>
+                  <h3 class="title"><%= establishment.name %></h3>
+                  <p><%= establishment.description %></p>
+                  <p><a><%= link_to 'View details', establishment, class: "btn btn-danger"%></a></p>
                 </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                  <%= image_tag "restaurant1.jpg" , class: "img-circle", height: '250', width: '250' %>
-                  <h2>Name</h2>
-                  <p>Description.</p>
-                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                  <%= image_tag "restaurant1.jpg" , class: "img-circle", height: '250', width: '250' %>
-                  <h2>Name</h2>
-                  <p>Description.</p>
-                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-              </div><!-- /.row -->
+              <% end %>
+            </div><!-- /.row -->
             <!-- Pager -->
             <ul class="pager">
                 <li class="next">
