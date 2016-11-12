@@ -47,16 +47,21 @@
   </div>
 
   <div class="field">
-    <%= f.label :lat %>
-    <%= f.text_field :lat %>
+    <%= f.hidden_field :lat %>
   </div>
 
   <div class="field">
-    <%= f.label :lng %>
-    <%= f.text_field :lng %>
+    <%= f.hidden_field :lng %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
+  </div>
+  <div class="span7">
+    <div class="control-group">
+      <%= label_tag :search, "Search For Address" %>
+      <%= text_field_tag :location_search, nil, class: "span12 search-query", type: "search" %>
+    </div>
+    <%= render partial: "googlemap" %>
   </div>
 <% end %>

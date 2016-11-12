@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 20161112213207) do
     t.string   "city"
     t.string   "postcode"
     t.string   "country"
-    t.decimal  "lat",           precision: 16, scale: 13
-    t.decimal  "lng",           precision: 16, scale: 13
-    t.integer  "user_id"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.index ["user_id"], name: "index_locations_on_user_id", using: :btree
+    t.decimal  "lat",               precision: 16, scale: 13
+    t.decimal  "lng",               precision: 16, scale: 13
+    t.integer  "establishments_id"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.index ["establishments_id"], name: "index_locations_on_establishments_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20161112213207) do
 
   add_foreign_key "comments", "establishments"
   add_foreign_key "comments", "users"
-  add_foreign_key "locations", "users"
+  add_foreign_key "locations", "establishments", column: "establishments_id"
   add_foreign_key "scores", "establishments"
   add_foreign_key "scores", "users"
 end
