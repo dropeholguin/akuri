@@ -27,7 +27,7 @@ class EstablishmentsController < ApplicationController
   # POST /establishments.json
   def create
     @establishment = Establishment.new(establishment_params)
-
+    @establishment.locations.new(address: params[:address])
     respond_to do |format|
       if @establishment.save
         format.html { redirect_to @establishment, notice: 'Establishment was successfully created.' }

@@ -1,42 +1,65 @@
 <%= form_for(establishment) do |f| %>
   <% if establishment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(establishment.errors.count, "error") %> prohibited this establishment from being saved:</h2>
-
-      <ul>
-      <% establishment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@establishment.errors.count, "error") %> prohibited this establishment from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @establishment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :kind_of_food %>
-    <%= f.text_field :kind_of_food %>
-  </div>
-
-  <div class="field">
-    <%= f.label :website %>
-    <%= f.text_field :website %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <form>
+    <div class="row">
+      <div class="form-group col-xs-6 col-md-8">
+        <label for="exampleInputEmail1">Name</label>
+        <%= f.text_field :name, class: "form-control", placeholder: "Name"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-6 col-md-8">
+        <label for="exampleInputEmail1">Attach image</label>
+        <%= f.file_field :image, class: "form-control", placeholder: "Image"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-6 col-md-8">
+        <label for="exampleInputPassword1">Description</label>
+        <%= f.text_field :description, class: "form-control", placeholder: "Description"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-6 col-md-8">
+        <label for="exampleInputPassword1">Kind of Food</label>
+        <%= f.text_field :kind_of_food, class: "form-control", placeholder: "Kind of Food"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-6 col-md-8">
+        <label for="exampleInputEmail1">Web Site</label>
+        <%= f.text_field :website, class: "form-control", placeholder: "Web Site"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-6 col-md-8">
+        <label for="exampleInputPassword1">Phone</label>
+        <%= f.text_field :phone, class: "form-control", placeholder: "Phone"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-6 col-md-8">
+        <label for="exampleInputPassword1">Location</label>
+        <%= text_field_tag :address, "", class: "form-control autocomplete", placeholder: "Where are you?" %>
+      </div>
+      </div>
+    <div class="row">
+      <div class="form-group col-xs-4">
+        <%= f.button "Create", class: 'btn btn-default btn-lg btn-block', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating..." } %>
+      </div>
+    </div>
+  </form>
 <% end %>

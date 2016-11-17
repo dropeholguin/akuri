@@ -26,10 +26,13 @@
                             <li>
                                 <% if current_user.has_role? :admin %>
                                     <%= link_to "Admin", rails_admin_path %>
+                                    <li>
+                                        <%= link_to "Create Restaurant", new_establishment_path %>
+                                    </li>
                                 <% end %>
                             </li>
                             <li>
-                                <%= link_to "all Restaurants", establishments_path %>
+                                <%= link_to "Restaurants", establishments_path %>
                             </li>
                             <li>
                                 <%= link_to edit_user_registration_path do %>
