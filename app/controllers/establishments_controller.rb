@@ -5,8 +5,18 @@ class EstablishmentsController < ApplicationController
   # GET /establishments
   # GET /establishments.json
   def index
-    @establishments = Establishment.all
+    @establishments = if params[:query].present?
+      Establishment.search(params[:query])
+    else
+      Establishment.all
+    end
     authorize! :read, @establishments
+  end
+
+  def autocomplete
+    render json: Establishment.search(params[:query], autocomplete: false, limit: 10).map do |establishment|
+      { name: establishments.name, value: establishments.id }
+    end
   end
 
   # GET /establishments/1

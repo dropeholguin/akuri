@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :scores
   resources :comments
-  resources :establishments
+
+  resources :establishments do
+    collection do
+      get :autocomplete
+    end
+  end
+
   devise_for :users, controllers: {registrations: "users/registrations" }
   root 'welcome#index'
 end 
