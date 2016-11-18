@@ -1,7 +1,7 @@
-<div class="row">
-  <div class=".col-md-6 .col-md-offset-3">
-    <div class="thumbnail">
-      <%= image_tag @establishment.image.url(:medium),class: "img-rounded", height: '300', width: '300'%>
+<div class="thumbnail">
+  <div class="row">
+    <div class="col-md-6">
+      <center><%= image_tag @establishment.image.url(:medium),class: "img-rounded", height: '300', width: '300'%></center>  
       <div class="caption">
         <h3 class="title"><%= @establishment.name %></h3>
         <h4>
@@ -19,7 +19,27 @@
           <strong>Phone:</strong>
           <%= @establishment.phone %>
         </p>
-        <p><%= link_to 'Back', establishments_path, class: "btn btn-danger"%></p> 
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Location</h4>
+      <% @locations.each do |location| %>
+        <div>
+          <h5><b><%= location.address %></b></h5>
+        </div>
+      <% end %>
+      <div class="row">
+        <div style='width: 800px;'>
+          <div id="map" style='width: 500px; height: 420px;'></div>
+        </div>
+          <script type="text/javascript">
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers(<%=raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+          </script>
       </div>
     </div>
   </div>

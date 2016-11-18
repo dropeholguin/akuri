@@ -12,6 +12,12 @@ class EstablishmentsController < ApplicationController
   # GET /establishments/1
   # GET /establishments/1.json
   def show
+    @locations = @establishment.locations
+    @hash = Gmaps4rails.build_markers(@locations) do |i, marker|
+      marker.lat i.latitude
+      marker.lng i.longitude
+      marker.infowindow i.address
+    end
   end
 
   # GET /establishments/new
