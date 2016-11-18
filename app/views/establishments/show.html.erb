@@ -3,7 +3,8 @@
     <div class="col-md-6">
       <center><%= image_tag @establishment.image.url(:medium),class: "img-rounded", height: '300', width: '300'%></center>  
       <div class="caption">
-        <h3 class="title"><%= @establishment.name %></h3>
+        <h3><%= @establishment.name %></h3>
+        <hr>
         <h4>
           <strong><%= @establishment.description %></strong>
         </h4>
@@ -19,6 +20,7 @@
           <strong>Phone:</strong>
           <%= @establishment.phone %>
         </p>
+        <p><%= link_to 'Back', establishments_path, class: "btn btn-danger"%></p> 
       </div>
     </div>
     <div class="col-md-6">
