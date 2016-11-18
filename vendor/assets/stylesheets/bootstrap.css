@@ -3060,9 +3060,9 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  color: #777;
+  background-color: #777;
+  border-color: #777;
 }
 .btn-default:focus,
 .btn-default.focus {
