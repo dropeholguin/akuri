@@ -1,3 +1,15 @@
+<div class="row">
+  <%= form_tag establishments_path, method: :get do %>
+    <div class="col-lg-6">
+      <div class="input-group">
+        <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: "Search Establishments..."%>
+        <span class="input-group-btn">
+          <%= submit_tag 'Go!', class: "btn btn-light"%>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  <% end %>
+</div><!-- /.row -->
 <h1 class="title">Establishments</h1>
 <div class="row">
   <% @establishments.each do |establishment| %>
