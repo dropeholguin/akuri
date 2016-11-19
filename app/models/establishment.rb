@@ -1,5 +1,5 @@
 class Establishment < ApplicationRecord
-	searchkick autocomplete: ['name']
+	searchkick
 
   has_many :comments
   has_many :scores

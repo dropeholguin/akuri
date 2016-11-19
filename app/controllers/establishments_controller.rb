@@ -13,12 +13,6 @@ class EstablishmentsController < ApplicationController
     authorize! :read, @establishments
   end
 
-  def autocomplete
-    render json: Establishment.search(params[:query], autocomplete: false, limit: 10).map do |establishment|
-      { name: establishments.name, value: establishments.id }
-    end
-  end
-
   # GET /establishments/1
   # GET /establishments/1.json
   def show
