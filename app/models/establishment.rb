@@ -1,5 +1,5 @@
 class Establishment < ApplicationRecord
-	searchkick
+	searchkick fields: [:name, :kind_of_food, :phone, :website]
 
   has_many :comments
   has_many :scores
