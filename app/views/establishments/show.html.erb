@@ -21,6 +21,7 @@
           <%= @establishment.phone %>
         </p>
         <p><%= link_to 'Back', establishments_path, class: "btn btn-default"%></p> 
+        <p><%= link_to "Write a Review", new_establishment_comment_path(@establishment), class: "btn btn-default" %></p>
       </div>
     </div>
     <div class="col-md-6">
