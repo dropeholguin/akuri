@@ -13,7 +13,7 @@
 <h1 class="title">Establishments</h1>
 <div class="row">
   <% @establishments.each do |establishment| %>
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6">
       <div class="thumbnail ">
         <%= link_to image_tag(establishment.image.url(:medium) ,class: "img-rounded", height: '200', width: '200' ), establishment%>
         <div class="caption">
