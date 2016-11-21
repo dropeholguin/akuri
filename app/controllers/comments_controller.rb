@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   # GET /comments/1
-  # GET /comments/1.json
+  # GET /comments/1.json 
   def show
   end
 
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  # GET /comments/1/edit
+  # GET /comments/1/edit 
   def edit
   end
 
