@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
   def edit
   end
 
-  # POST /locations
+  # POST /locations 
   # POST /locations.json
   def create
     @location = Location.new(location_params)
