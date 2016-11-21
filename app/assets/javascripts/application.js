@@ -16,5 +16,4 @@
 //= require bootstrap
 //= require underscore
 //= require gmaps/google
-//= require typeahead
 //= require_tree .
