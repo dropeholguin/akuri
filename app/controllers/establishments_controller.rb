@@ -53,6 +53,9 @@ class EstablishmentsController < ApplicationController
   # PATCH/PUT /establishments/1.json
   def update
     respond_to do |format|
+      if @establishment.locations.empty?
+        @establishment.locations.new(address: params[:address])
+      end
       if @establishment.update(establishment_params)
         format.html { redirect_to @establishment, notice: 'Establishment was successfully updated.' }
         format.json { render :show, status: :ok, location: @establishment }
