@@ -20,7 +20,7 @@ class EstablishmentsController < ApplicationController
     end
   end
 
-  # GET /establishments/new
+  # GET /establishments/new 
   def new
     @establishment = Establishment.new
   end
