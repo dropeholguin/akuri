@@ -49,7 +49,7 @@ class EstablishmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /establishments/1
+
   # PATCH/PUT /establishments/1.json
   def update
     respond_to do |format|
@@ -72,6 +72,8 @@ class EstablishmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #Use callbacks 
 
   private
     # Use callbacks to share common setup or constraints between actions.
