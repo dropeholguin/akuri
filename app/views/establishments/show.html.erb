@@ -1,7 +1,10 @@
 <div class="thumbnail">
   <div class="row">
     <div class="col-md-6">
-      <center><%= image_tag @establishment.image.url(:medium),class: "img-rounded", height: '300', width: '300'%></center>  
+      <center><%= image_tag @establishment.image.url(:medium),class: "img-rounded", height: '300', width: '300'%>
+        <div class="star-rating" data-score= <%= @avg_comment %> ></div>
+        <em><%= "#{@comments.length} comments" %></em>
+      </center>  
       <div class="caption">
         <h3><%= @establishment.name %></h3>
         <hr>
@@ -20,6 +23,19 @@
           <strong>Phone:</strong>
           <%= @establishment.phone %>
         </p>
+        <hr>
+        <h3 class="title">Comments</h3>
+        <% if @comments.blank? %>
+          <h5>No comments just yet, would you like to add the first!</h5>
+        <% else %>
+          <% @comments.each do |comment| %>
+            <div class="title">
+              <div class="star-rating" data-score= <%= comment.score %> ></div>
+              <p><%= comment.body %></p>
+            </div>
+          <% end %>
+        <% end %>
+        <p><%= link_to "Write a Review", new_establishment_comment_path(@establishment), class: "btn btn-default" %></p>
         <p><%= link_to 'Back', establishments_path, class: "btn btn-default"%></p> 
       </div>
     </div>
@@ -48,3 +64,13 @@
     </div>
   </div>
 </div>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

@@ -5,7 +5,11 @@ class EstablishmentsController < ApplicationController
   # GET /establishments
   # GET /establishments.json
   def index
-    @establishments = Establishment.all
+    @establishments = if params[:query].present?
+      Establishment.search(params[:query])
+    else
+      Establishment.all
+    end
     authorize! :read, @establishments
   end
 
@@ -13,6 +17,14 @@ class EstablishmentsController < ApplicationController
   # GET /establishments/1.json
   def show
     @locations = @establishment.locations
+    @comments = Comment.where(establishment_id: @establishment.id).order("created_at DESC")
+
+    if @comments.blank?
+      @avg_comment = 0
+    else
+      @avg_comment = @comments.average(:score).round(2)
+    end
+
     @hash = Gmaps4rails.build_markers(@locations) do |i, marker|
       marker.lat i.latitude
       marker.lng i.longitude
@@ -49,6 +61,9 @@ class EstablishmentsController < ApplicationController
   # PATCH/PUT /establishments/1.json
   def update
     respond_to do |format|
+      if @establishment.locations.empty?
+        @establishment.locations.new(address: params[:address])
+      end
       if @establishment.update(establishment_params)
         format.html { redirect_to @establishment, notice: 'Establishment was successfully updated.' }
         format.json { render :show, status: :ok, location: @establishment }
