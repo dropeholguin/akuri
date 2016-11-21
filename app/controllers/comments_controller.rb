@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  # GET /comments/1/edit
+  # GET /comments/1/edit 
   def edit
   end
 
