@@ -13,7 +13,7 @@ class EstablishmentsController < ApplicationController
     authorize! :read, @establishments
   end
 
-  # GET /establishments/1
+  # GET /establishments/1 
   # GET /establishments/1.json
   def show
     @locations = @establishment.locations
